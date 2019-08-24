@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("../../assets/images/Batman_grey.jpg") no-repeat 50% 50% fixed;
+    background-size: cover;
+    font-family: 'Staatliches', cursive;
+}
+
+.jumbotron {
+    background: yellow;
+    opacity: 0.8;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+#game {
+    text-align: center;
+    color: black;
+}
+
+#timeRemaining {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+
+}
+
+#start {
+    /* Positioning */
+    margin: auto;
+    /* color:yellow;
+    background: black;
+    border: 1px solid black; */
+    /* Typography */
+    text-align: center;
+    width: 100px;
+    height: 50px;
+  }
+
