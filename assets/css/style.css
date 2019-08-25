@@ -30,12 +30,10 @@ body {
 }
 
 #start {
-    /* Positioning */
     margin: auto;
     /* color:yellow;
     background: black;
     border: 1px solid black; */
-    /* Typography */
     text-align: center;
     width: 100px;
     height: 50px;

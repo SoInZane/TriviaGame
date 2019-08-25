@@ -11,7 +11,7 @@ var triviaDetails = {
   incorrect: 0,
   unanswered: 0,
   currentSet: 0,
-  timer: 20,
+  timer: 10,
   timerOn: false,
   timerId: '',
   // questions options and answers
@@ -71,7 +71,7 @@ var triviaDetails = {
   // method to loop through and display questions and options 
   nextQuestion: function () {
 
-    // set timer to 20 seconds each question
+    // set timer to 10 seconds each question
     triviaDetails.timer = 10;
     $('#timer').removeClass('last-seconds');
     $('#timer').text(triviaDetails.timer);
@@ -90,7 +90,7 @@ var triviaDetails = {
 
     // tie the answer options to the buttons
     $.each(questionOptions, function (index, key) {
-      $('#options').append($('<button class="option btn btn-info btn-lg">' + key + '</button>'));
+      $('#options').append($('<button class="option btn btn-info btn-lg" style="color: yellow; background:black; border: 1px solid black">' + key + '</button>'));
     })
 
   },
@@ -146,6 +146,7 @@ var triviaDetails = {
       clearInterval(triviaDetails.timerId);
       resultId = setTimeout(triviaDetails.guessResult, 1000);
       $('#results').html('<h3>Boom!</h3>');
+      
     }
     // else tally the incorrect answer
     else {
@@ -153,6 +154,7 @@ var triviaDetails = {
       clearInterval(triviaDetails.timerId);
       resultId = setTimeout(triviaDetails.guessResult, 1000);
       $('#results').html('<h3>Pow! ' + currentAnswer + '</h3>');
+      
     }
 
   },
