@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+  $("#image1").hide();
+  $("#image2").hide();
   $("#start").on('click', triviaDetails.startGame);
   $(document).on('click', '.option', triviaDetails.guessChecker);
 
@@ -64,6 +66,10 @@ var triviaDetails = {
     // show the remaining time
     $('#remaining-time').show();
 
+    $("#image1").hide();
+
+    $("#image2").hide();
+
     // ask the first question
     triviaDetails.nextQuestion();
 
@@ -75,6 +81,8 @@ var triviaDetails = {
     triviaDetails.timer = 10;
     $('#timer').removeClass('last-seconds');
     $('#timer').text(triviaDetails.timer);
+    $("#image1").hide();
+    $("#image2").hide();
 
     // this will prevent the timer from starting too soon once switching to the next question n- wati 1 second
     if (!triviaDetails.timerOn) {
@@ -143,18 +151,20 @@ var triviaDetails = {
     // check if the guess matches the correct answer and tally the correct answer
     if ($(this).text() === currentAnswer) {
       triviaDetails.correct++;
+      $("#image1").show();
       clearInterval(triviaDetails.timerId);
-      resultId = setTimeout(triviaDetails.guessResult, 1000);
-      $('#results').html('<h3>Boom!</h3>');
-      
+      resultId = setTimeout(triviaDetails.guessResult, 3000);
+      $('#results').html('<h3>Boom! You are correct!</h3>');
+
     }
     // else tally the incorrect answer
     else {
       triviaDetails.incorrect++;
+      $('#image2').show();
       clearInterval(triviaDetails.timerId);
-      resultId = setTimeout(triviaDetails.guessResult, 1000);
-      $('#results').html('<h3>Pow! ' + currentAnswer + '</h3>');
-      
+      resultId = setTimeout(triviaDetails.guessResult, 3000);
+      $('#results').html('<h3>Pow! Sorry that is incorrect: ' + currentAnswer + ' was the correct answer!</h3>');
+
     }
 
   },
